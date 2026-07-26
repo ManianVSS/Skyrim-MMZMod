@@ -296,10 +296,10 @@ EndFunction
 
 function mmzInit()
 	Actor player = Game.GetPlayer()
-	player.ModActorValue("magicka", 1000)
-	;player.ModActorValue("health", 200)
-	player.ModActorValue("stamina", 1000)
-	player.ModActorValue("CarryWeight", 10000)
+	player.SetActorValue("magicka", 1000)
+	player.SetActorValue("health", 250)
+	player.SetActorValue("stamina", 1000)
+	player.SetActorValue("CarryWeight", 10000)
 
 	player.SetAV("MagickaRate", 5)
 	player.SetAV("StaminaRate", 5)
