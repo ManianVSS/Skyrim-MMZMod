@@ -297,44 +297,45 @@ EndFunction
 function mmzInit()
 	Actor player = Game.GetPlayer()	
 
+	Debug.Notification("MMZ Script Mod: Modifying Base Stats")
 	player.SetActorValue("magicka", 250)
 	player.SetActorValue("health", 250)
 	player.SetActorValue("stamina", 250)
-	player.SetActorValue("CarryWeight", 1000)
+	player.ModActorValue("CarryWeight", 3000)
 
+	Debug.Notification("MMZ Script Mod: Modifying Regen Stats")
 	player.ModActorValue("MagickaRate", 25)
 	player.ModActorValue("StaminaRate", 25)
 
-	;does not work ;player.ModAV("PerkPoints", 30)
-	;player.SetAV("PerkPoints", 50)
-	Game.AddPerkPoints(25)
-	;does not work ;Game.ModPerkPoints(50)
+	; Add Starting Perks
+	Debug.Notification("MMZ Script Mod: Adding Starting Perk Points")
+	Game.AddPerkPoints(35)
 
 	;player.SetActorValue("dragonsouls", 10)	
 	;player.modActorValue("dragonsouls", 10)
 	
-	;player.SetAV("Smithing", 1)
-	;player.SetAV("HeavyArmor", 1)
-	;player.SetAV("Block", 1)
-	;player.SetAV("TwoHanded", 1)
-	;player.SetAV("OneHanded", 1)
-	;player.SetAV("Marksman", 1)
-	;player.SetAV("LightArmor", 1)
-	;player.SetAV("Sneak", 1)
-	;player.SetAV("Lockpicking", 1)
-	;player.SetAV("Pickpocket", 1)
-	;player.SetAV("Speechcraft", 1)
-	;player.SetAV("Alchemy", 1)
-	;player.SetAV("Illusion", 1)
-	;player.SetAV("Conjuration", 1)
-	;player.SetAV("Destruction", 1)
-	;player.SetAV("Restoration", 1)
-	;player.SetAV("Alteration", 1)
-	;player.SetAV("Enchanting", 1)
-
-	;player.SetAV("Enchanting", 100)
+	Debug.Notification("MMZ Script Mod: Setting All Skills to 1")
+	player.SetAV("Smithing", 1)
+	player.SetAV("HeavyArmor", 1)
+	player.SetAV("Block", 1)
+	player.SetAV("TwoHanded", 1)
+	player.SetAV("OneHanded", 1)
+	player.SetAV("Marksman", 1)
+	player.SetAV("LightArmor", 1)
+	player.SetAV("Sneak", 1)
+	player.SetAV("Lockpicking", 1)
+	player.SetAV("Pickpocket", 1)
+	player.SetAV("Speechcraft", 1)
+	player.SetAV("Alchemy", 1)
+	player.SetAV("Illusion", 1)
+	player.SetAV("Conjuration", 1)
+	player.SetAV("Destruction", 1)
+	player.SetAV("Restoration", 1)
+	player.SetAV("Alteration", 1)
+	player.SetAV("Enchanting", 1)	
 
 	
+	Debug.Notification("MMZ Script Mod: Adding starting spells")
 	; Add Healing Hands
 	Spell healingHHandsSpell = Game.GetFormFromFile(0x0004D3F2, "Skyrim.esm") as Spell
     player.AddSpell(healingHHandsSpell)
@@ -349,8 +350,8 @@ function mmzInit()
     player.AddSpell(invisibilitySpell)
 
 	; Add Incinerate
-	Spell incinerateSpell = Game.GetFormFromFile(0x0010F7ED, "Skyrim.esm") as Spell
-    player.AddSpell(incinerateSpell)
+	;Spell incinerateSpell = Game.GetFormFromFile(0x0010F7ED, "Skyrim.esm") as Spell
+    ;player.AddSpell(incinerateSpell)
 
 	; Add Telekinesis
 	Spell telekinesisSpell = Game.GetFormFromFile(0x0001A4CC, "Skyrim.esm") as Spell
@@ -380,6 +381,7 @@ function mmzInit()
 	;Spell conjureDemoraLordSpell = Game.GetFormFromFile(0x0010DDEC, "Skyrim.esm") as Spell
     ;player.AddSpell(conjureDemoraLordSpell)
 
+	Debug.Notification("MMZ Script Mod: Giving starting items")
 	; Starting gold
 	MiscObject gold = Game.GetFormFromFile(0x0000000F, "Skyrim.esm") as MiscObject
     player.AddItem(gold, 10000, true)
@@ -388,6 +390,11 @@ function mmzInit()
 	MiscObject grandSoulGem = Game.GetFormFromFile(0x0002E4FF, "Skyrim.esm") as MiscObject
     player.AddItem(grandSoulGem, 10, true)
 		
+	Debug.Notification("MMZ Script Mod: Giving Initial Perks")
+	; Add Imperial luck ability spell Id 000EB7EB
+	Spell imperialLuckSpell = Game.GetFormFromFile(0x000EB7EB, "Skyrim.esm") as Spell
+    player.AddSpell(imperialLuckSpell)
+
 	; Give Twin souls perk
 	Perk twinSoulsPerk = Game.GetFormFromFile(0x000D5F1C, "Skyrim.esm") as Perk
     player.AddPerk(twinSoulsPerk)
@@ -455,24 +462,24 @@ function mmzInit()
 
 	;String playerName = Game.GetPlayer().GetBaseObject().GetName()
 	;If ( playerName == "MMZ" )
-	experienceIncrementSkill("Smithing", 5)
-	experienceIncrementSkill("HeavyArmor", 5)
-	experienceIncrementSkill("Block", 5)
-	experienceIncrementSkill("TwoHanded", 5)
-	experienceIncrementSkill("OneHanded", 5)
-	experienceIncrementSkill("Marksman", 5)
-	experienceIncrementSkill("LightArmor", 5)
-	experienceIncrementSkill("Sneak", 5)
-	experienceIncrementSkill("Lockpicking", 5)
-	experienceIncrementSkill("Pickpocket", 5)
-	experienceIncrementSkill("Speechcraft", 5)
-	experienceIncrementSkill("Alchemy", 5)
-	experienceIncrementSkill("Illusion", 5)
-	experienceIncrementSkill("Conjuration", 5)
-	experienceIncrementSkill("Destruction", 5)
-	experienceIncrementSkill("Restoration", 5)
-	experienceIncrementSkill("Alteration", 5)
-	experienceIncrementSkill("Enchanting", 5)
+	;experienceIncrementSkill("Smithing", 5)
+	;experienceIncrementSkill("HeavyArmor", 5)
+	;experienceIncrementSkill("Block", 5)
+	;experienceIncrementSkill("TwoHanded", 5)
+	;experienceIncrementSkill("OneHanded", 5)
+	;experienceIncrementSkill("Marksman", 5)
+	;experienceIncrementSkill("LightArmor", 5)
+	;experienceIncrementSkill("Sneak", 5)
+	;experienceIncrementSkill("Lockpicking", 5)
+	;experienceIncrementSkill("Pickpocket", 5)
+	;experienceIncrementSkill("Speechcraft", 5)
+	;experienceIncrementSkill("Alchemy", 5)
+	;experienceIncrementSkill("Illusion", 5)
+	;experienceIncrementSkill("Conjuration", 5)
+	;experienceIncrementSkill("Destruction", 5)
+	;experienceIncrementSkill("Restoration", 5)
+	;experienceIncrementSkill("Alteration", 5)
+	;experienceIncrementSkill("Enchanting", 5)
 	
 	; Add ill game Achievements
 	; Game.AddAchievement(27)
