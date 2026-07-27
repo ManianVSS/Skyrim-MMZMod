@@ -70,8 +70,8 @@ Function mmzKillDragon()
 	Game.GetPlayer().SetActorValue("health", healthIncrease)	
 	Float staminaIncrease=Game.GetPlayer().GetBaseActorValue("stamina") + fixedIncrease
 	Game.GetPlayer().SetActorValue("stamina", staminaIncrease)
-	;Float CarryWeightIncrease=Game.GetPlayer().GetBaseActorValue("CarryWeight") + fixedIncrease
-	;Game.GetPlayer().SetActorValue("CarryWeight", CarryWeightIncrease)
+	Float CarryWeightIncrease=Game.GetPlayer().GetBaseActorValue("CarryWeight") + fixedIncrease
+	Game.GetPlayer().SetActorValue("CarryWeight", CarryWeightIncrease)
 
 	MiscObject grandSoulGem = Game.GetFormFromFile(0x0002E4FF, "Skyrim.esm") as MiscObject
     Game.GetPlayer().AddItem(grandSoulGem, 10, true)

@@ -297,16 +297,17 @@ EndFunction
 function mmzInit()
 	Actor player = Game.GetPlayer()	
 
-	player.SetActorValue("magicka", 1000)
+	player.SetActorValue("magicka", 250)
 	player.SetActorValue("health", 250)
-	player.SetActorValue("stamina", 1000)
-	player.SetActorValue("CarryWeight", 10000)
+	player.SetActorValue("stamina", 250)
+	player.SetActorValue("CarryWeight", 1000)
 
-	player.SetAV("MagickaRate", 5)
-	player.SetAV("StaminaRate", 5)
+	player.ModActorValue("MagickaRate", 25)
+	player.ModActorValue("StaminaRate", 25)
 
 	;does not work ;player.ModAV("PerkPoints", 30)
 	;player.SetAV("PerkPoints", 50)
+	Game.AddPerkPoints(25)
 	;does not work ;Game.ModPerkPoints(50)
 
 	;player.SetActorValue("dragonsouls", 10)	
@@ -331,7 +332,7 @@ function mmzInit()
 	;player.SetAV("Alteration", 1)
 	;player.SetAV("Enchanting", 1)
 
-	player.SetAV("Enchanting", 100)
+	;player.SetAV("Enchanting", 100)
 
 	
 	; Add Healing Hands
@@ -356,16 +357,16 @@ function mmzInit()
     player.AddSpell(telekinesisSpell)
 
 	;Add Muffle Spell 0008F3EB
-	Spell muffleSpell = Game.GetFormFromFile(0x0008F3EB, "Skyrim.esm") as Spell
-    player.AddSpell(muffleSpell)
+	;Spell muffleSpell = Game.GetFormFromFile(0x0008F3EB, "Skyrim.esm") as Spell
+    ;player.AddSpell(muffleSpell)
 
 	;Add SoulTrap spell 0004DBA4
-	Spell soulTrapSpell = Game.GetFormFromFile(0x0004DBA4, "Skyrim.esm") as Spell
-    player.AddSpell(soulTrapSpell)
+	;Spell soulTrapSpell = Game.GetFormFromFile(0x0004DBA4, "Skyrim.esm") as Spell
+    ;player.AddSpell(soulTrapSpell)
 
 	;Add MageLight spell 00043323
-	Spell mageLightSpell = Game.GetFormFromFile(0x00043323, "Skyrim.esm") as Spell
-    player.AddSpell(mageLightSpell)
+	;Spell mageLightSpell = Game.GetFormFromFile(0x00043323, "Skyrim.esm") as Spell
+    ;player.AddSpell(mageLightSpell)
 
 	;Add Equilibrium spell 000DA746
 	Spell equilibriumSpell = Game.GetFormFromFile(0x000DA746, "Skyrim.esm") as Spell
@@ -376,8 +377,8 @@ function mmzInit()
     player.AddSpell(grandHealingSpell)
 
 	; Add Conure Dremora lord 0010ddec
-	Spell conjureDemoraLordSpell = Game.GetFormFromFile(0x0010DDEC, "Skyrim.esm") as Spell
-    player.AddSpell(conjureDemoraLordSpell)
+	;Spell conjureDemoraLordSpell = Game.GetFormFromFile(0x0010DDEC, "Skyrim.esm") as Spell
+    ;player.AddSpell(conjureDemoraLordSpell)
 
 	; Starting gold
 	;MiscObject gold = Game.GetFormFromFile(0x0000000F, "Skyrim.esm") as MiscObject
@@ -440,6 +441,10 @@ function mmzInit()
 	Perk merchantPerk = Game.GetFormFromFile(0x00058F7A, "Skyrim.esm") as Perk
     player.AddPerk(merchantPerk)
 
+	; Give Master Trader Perk 001090A5
+	Perk masterTraderPerk = Game.GetFormFromFile(0x001090A5, "Skyrim.esm") as Perk
+    player.AddPerk(masterTraderPerk)
+
 	; Give Arcane Blacksmith Perk 0005218E
 	Perk arcaneBlackSmithPerk = Game.GetFormFromFile(0x0005218E, "Skyrim.esm") as Perk
     player.AddPerk(arcaneBlackSmithPerk)
@@ -470,8 +475,8 @@ function mmzInit()
 	experienceIncrementSkill("Enchanting", 5)
 	
 	; Add ill game Achievements
-	Game.AddAchievement(27)
-	Game.AddAchievement(35)
+	; Game.AddAchievement(27)
+	; Game.AddAchievement(35)
 	
 	;Endif
 
