@@ -4,14 +4,21 @@
 
 # Parse command line arguments
 # Optional argument: --backup to create a backup of the original files before copying the mod files
+#                    --source-only to copy only the Source folder contents to the game's data folder
 #                    --game-dir <path> to specify the game directory (default: ~/.steam/steam/steamapps/common/Skyrim Special Edition)
 
 game_dir="$HOME/.steam/steam/steamapps/common/Skyrim Special Edition"
 
 backup=false
+source_only=false
 
 if [ "$1" = "--backup" ]; then
     backup=true
+    shift
+fi
+
+if [ "$1" = "--source-only" ]; then
+    source_only=true
     shift
 fi
 
@@ -75,6 +82,10 @@ fi
 
 # Copy the mod's data folder contents to the game's data folder
 echo "Copying mod files to the game's data folder..."
-cp -r "$mod_data_dir/"* "$game_dir/Data/"
+if [ "$source_only" = true ]; then
+    cp -r "$mod_data_dir/Source/"* "$game_dir/Data/Source/"
+else
+    cp -r "$mod_data_dir/"* "$game_dir/Data/"
+fi
 
 echo "Installation complete!"

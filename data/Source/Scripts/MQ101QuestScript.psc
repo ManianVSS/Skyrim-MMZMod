@@ -295,7 +295,8 @@ Function experienceIncrementSkill(String skillName, Int increment)
 EndFunction
 
 function mmzInit()
-	Actor player = Game.GetPlayer()
+	Actor player = Game.GetPlayer()	
+
 	player.SetActorValue("magicka", 1000)
 	player.SetActorValue("health", 250)
 	player.SetActorValue("stamina", 1000)
@@ -310,10 +311,6 @@ function mmzInit()
 
 	;player.SetActorValue("dragonsouls", 10)	
 	;player.modActorValue("dragonsouls", 10)
-
-	; Add ill game Achievements
-	Game.AddAchievement(27)
-	Game.AddAchievement(35)
 	
 	;player.SetAV("Smithing", 1)
 	;player.SetAV("HeavyArmor", 1)
@@ -334,149 +331,150 @@ function mmzInit()
 	;player.SetAV("Alteration", 1)
 	;player.SetAV("Enchanting", 1)
 
-	;player.SetAV("Smithing", 250)
-	;player.SetAV("HeavyArmor", 250)
-	;player.SetAV("Block", 250)
-	;player.SetAV("TwoHanded", 250)
-	;player.SetAV("OneHanded", 250)
-	;player.SetAV("Marksman", 250)
-	;player.SetAV("LightArmor", 250)
-	;player.SetAV("Sneak", 250)
-	;player.SetAV("Lockpicking", 250)
-	;player.SetAV("Pickpocket", 250)
-	;player.SetAV("Speechcraft", 250)
-	;player.SetAV("Alchemy", 250)
-	;player.SetAV("Illusion", 250)
-	;player.SetAV("Conjuration", 250)
-	;player.SetAV("Destruction", 250)
-	;player.SetAV("Restoration", 250)
-	;player.SetAV("Alteration", 250)
 	player.SetAV("Enchanting", 100)
 
-	;experienceIncrementSkill("Smithing", 5)
-	;experienceIncrementSkill("HeavyArmor", 5)
-	;experienceIncrementSkill("Block", 5)
-	;experienceIncrementSkill("TwoHanded", 5)
-	;experienceIncrementSkill("OneHanded", 5)
-	;experienceIncrementSkill("Marksman", 5)
-	;experienceIncrementSkill("LightArmor", 5)
-	;experienceIncrementSkill("Sneak", 5)
-	;experienceIncrementSkill("Lockpicking", 5)
-	;experienceIncrementSkill("Pickpocket", 5)
-	;experienceIncrementSkill("Speechcraft", 5)
-	;experienceIncrementSkill("Alchemy", 5)
-	;experienceIncrementSkill("Illusion", 5)
-	;experienceIncrementSkill("Conjuration", 5)
-	;experienceIncrementSkill("Destruction", 5)
-	;experienceIncrementSkill("Restoration", 5)
-	;experienceIncrementSkill("Alteration", 5)
-	;experienceIncrementSkill("Enchanting", 5)
 	
 	; Add Healing Hands
 	Spell healingHHandsSpell = Game.GetFormFromFile(0x0004D3F2, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(healingHHandsSpell)
+    player.AddSpell(healingHHandsSpell)
 	; Add Bound Bow
 	Spell boundBowSpell = Game.GetFormFromFile(0x000211ED, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(boundBowSpell)
+    player.AddSpell(boundBowSpell)
 	; Add Transmute
 	Spell transmuteSpell = Game.GetFormFromFile(0x00109111, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(transmuteSpell)
+    player.AddSpell(transmuteSpell)
 	; Add Invisibility
 	Spell invisibilitySpell = Game.GetFormFromFile(0x00027EB6, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(invisibilitySpell)
+    player.AddSpell(invisibilitySpell)
 
 	; Add Incinerate
 	Spell incinerateSpell = Game.GetFormFromFile(0x0010F7ED, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(incinerateSpell)
+    player.AddSpell(incinerateSpell)
 
 	; Add Telekinesis
 	Spell telekinesisSpell = Game.GetFormFromFile(0x0001A4CC, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(telekinesisSpell)
+    player.AddSpell(telekinesisSpell)
 
 	;Add Muffle Spell 0008F3EB
 	Spell muffleSpell = Game.GetFormFromFile(0x0008F3EB, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(muffleSpell)
+    player.AddSpell(muffleSpell)
 
 	;Add SoulTrap spell 0004DBA4
 	Spell soulTrapSpell = Game.GetFormFromFile(0x0004DBA4, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(soulTrapSpell)
+    player.AddSpell(soulTrapSpell)
 
 	;Add MageLight spell 00043323
 	Spell mageLightSpell = Game.GetFormFromFile(0x00043323, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(mageLightSpell)
+    player.AddSpell(mageLightSpell)
 
 	;Add Equilibrium spell 000DA746
 	Spell equilibriumSpell = Game.GetFormFromFile(0x000DA746, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(equilibriumSpell)
+    player.AddSpell(equilibriumSpell)
 
 	; Add Grand Healing spell 000B62EE
 	Spell grandHealingSpell = Game.GetFormFromFile(0x000B62EE, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(grandHealingSpell)
+    player.AddSpell(grandHealingSpell)
 
 	; Add Conure Dremora lord 0010ddec
 	Spell conjureDemoraLordSpell = Game.GetFormFromFile(0x0010DDEC, "Skyrim.esm") as Spell
-    Game.GetPlayer().AddSpell(conjureDemoraLordSpell)
+    player.AddSpell(conjureDemoraLordSpell)
 
 	; Starting gold
 	;MiscObject gold = Game.GetFormFromFile(0x0000000F, "Skyrim.esm") as MiscObject
-    ;Game.GetPlayer().AddItem(gold, 5000, true)
+    ;player.AddItem(gold, 5000, true)
 
 	; Add soul gems
 	MiscObject grandSoulGem = Game.GetFormFromFile(0x0002E4FF, "Skyrim.esm") as MiscObject
-    Game.GetPlayer().AddItem(grandSoulGem, 10, true)
+    player.AddItem(grandSoulGem, 10, true)
 		
 	; Give Twin souls perk
 	Perk twinSoulsPerk = Game.GetFormFromFile(0x000D5F1C, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(twinSoulsPerk)
+    player.AddPerk(twinSoulsPerk)
 	; Give Extra effect perk
 
 	Perk extraEffectPerk = Game.GetFormFromFile(0x00058F7F, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(extraEffectPerk)
+    player.AddPerk(extraEffectPerk)
 	; Give Green Thumb perk
 
 	Perk greenThumbPerk = Game.GetFormFromFile(0x00105F2E, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(greenThumbPerk)
+    player.AddPerk(greenThumbPerk)
 	; Give Experimenter50 perk
 	Perk experimenter50perk = Game.GetFormFromFile(0x00058218, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(experimenter50perk)
+    player.AddPerk(experimenter50perk)
 	; Give Experimenter70 perk
 	Perk experimenter70perk = Game.GetFormFromFile(0x00105F2A, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(experimenter70perk)
+    player.AddPerk(experimenter70perk)
 	; Give Expermienter90 perk
 	Perk experimenter90perk = Game.GetFormFromFile(0x00105F2B, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(experimenter90perk)
+    player.AddPerk(experimenter90perk)
 
 	; Give Unbreakable perk
 	Perk unbreakablePerk = Game.GetFormFromFile(0x00058209, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(unbreakablePerk)
+    player.AddPerk(unbreakablePerk)
 	; Give Locksmith perk
 	Perk locksmithPerk = Game.GetFormFromFile(0x00058208, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(locksmithPerk)
+    player.AddPerk(locksmithPerk)
 	; Give QuickHands perk
 	Perk quickHandsPerk = Game.GetFormFromFile(0x00106259, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(quickHandsPerk)
+    player.AddPerk(quickHandsPerk)
 	; Give Golden Touch perk
 	Perk goldenTouchPerk = Game.GetFormFromFile(0x0005820A, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(goldenTouchPerk)
+    player.AddPerk(goldenTouchPerk)
 	; Give TreasureHunter perk
 	Perk treasureHunterPerk = Game.GetFormFromFile(0x00105F26, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(treasureHunterPerk)
+    player.AddPerk(treasureHunterPerk)
 
 	; Give Misdirection perk
 	Perk misdirectionPerk = Game.GetFormFromFile(0x00058201, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(misdirectionPerk)
+    player.AddPerk(misdirectionPerk)
 	; Give Perfect Touch perk
 	Perk perfectTouchPerk = Game.GetFormFromFile(0x00058205, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(perfectTouchPerk)
+    player.AddPerk(perfectTouchPerk)
 
 
 	; Give Silent Roll perk
 	Perk silentRollPerk = Game.GetFormFromFile(0x00105F23, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(silentRollPerk)
+    player.AddPerk(silentRollPerk)
 
 	; Give Merchant perk
 	Perk merchantPerk = Game.GetFormFromFile(0x00058F7A, "Skyrim.esm") as Perk
-    Game.GetPlayer().AddPerk(merchantPerk)
+    player.AddPerk(merchantPerk)
+
+	; Give Arcane Blacksmith Perk 0005218E
+	Perk arcaneBlackSmithPerk = Game.GetFormFromFile(0x0005218E, "Skyrim.esm") as Perk
+    player.AddPerk(arcaneBlackSmithPerk)
+
+	; Give Dragon Smithing Perk 00052190
+	Perk dragonSmithingPerk = Game.GetFormFromFile(0x00052190, "Skyrim.esm") as Perk
+    player.AddPerk(dragonSmithingPerk)
+
+	;String playerName = Game.GetPlayer().GetBaseObject().GetName()
+	;If ( playerName == "MMZ" )
+	;	experienceIncrementSkill("Smithing", 100)
+	;	experienceIncrementSkill("HeavyArmor", 100)
+	;	experienceIncrementSkill("Block", 100)
+	;	experienceIncrementSkill("TwoHanded", 100)
+	;	experienceIncrementSkill("OneHanded", 100)
+	;	experienceIncrementSkill("Marksman", 100)
+	;	experienceIncrementSkill("LightArmor", 100)
+	;	experienceIncrementSkill("Sneak", 100)
+	;	experienceIncrementSkill("Lockpicking", 100)
+	;	experienceIncrementSkill("Pickpocket", 100)
+	;	experienceIncrementSkill("Speechcraft", 100)
+	;	experienceIncrementSkill("Alchemy", 100)
+	;	experienceIncrementSkill("Illusion", 100)
+	;	experienceIncrementSkill("Conjuration", 100)
+	;	experienceIncrementSkill("Destruction", 100)
+	;	experienceIncrementSkill("Restoration", 100)
+	;	experienceIncrementSkill("Alteration", 100)
+	;	experienceIncrementSkill("Enchanting", 100)
+	;	
+	;	; Add ill game Achievements
+	;	Game.AddAchievement(27)
+	;	Game.AddAchievement(35)
+	;
+	;Endif
+
 EndFunction
 
 
