@@ -450,29 +450,29 @@ function mmzInit()
 
 	;String playerName = Game.GetPlayer().GetBaseObject().GetName()
 	;If ( playerName == "MMZ" )
-	;	experienceIncrementSkill("Smithing", 100)
-	;	experienceIncrementSkill("HeavyArmor", 100)
-	;	experienceIncrementSkill("Block", 100)
-	;	experienceIncrementSkill("TwoHanded", 100)
-	;	experienceIncrementSkill("OneHanded", 100)
-	;	experienceIncrementSkill("Marksman", 100)
-	;	experienceIncrementSkill("LightArmor", 100)
-	;	experienceIncrementSkill("Sneak", 100)
-	;	experienceIncrementSkill("Lockpicking", 100)
-	;	experienceIncrementSkill("Pickpocket", 100)
-	;	experienceIncrementSkill("Speechcraft", 100)
-	;	experienceIncrementSkill("Alchemy", 100)
-	;	experienceIncrementSkill("Illusion", 100)
-	;	experienceIncrementSkill("Conjuration", 100)
-	;	experienceIncrementSkill("Destruction", 100)
-	;	experienceIncrementSkill("Restoration", 100)
-	;	experienceIncrementSkill("Alteration", 100)
-	;	experienceIncrementSkill("Enchanting", 100)
-	;	
-	;	; Add ill game Achievements
-	;	Game.AddAchievement(27)
-	;	Game.AddAchievement(35)
-	;
+	experienceIncrementSkill("Smithing", 5)
+	experienceIncrementSkill("HeavyArmor", 5)
+	experienceIncrementSkill("Block", 5)
+	experienceIncrementSkill("TwoHanded", 5)
+	experienceIncrementSkill("OneHanded", 5)
+	experienceIncrementSkill("Marksman", 5)
+	experienceIncrementSkill("LightArmor", 5)
+	experienceIncrementSkill("Sneak", 5)
+	experienceIncrementSkill("Lockpicking", 5)
+	experienceIncrementSkill("Pickpocket", 5)
+	experienceIncrementSkill("Speechcraft", 5)
+	experienceIncrementSkill("Alchemy", 5)
+	experienceIncrementSkill("Illusion", 5)
+	experienceIncrementSkill("Conjuration", 5)
+	experienceIncrementSkill("Destruction", 5)
+	experienceIncrementSkill("Restoration", 5)
+	experienceIncrementSkill("Alteration", 5)
+	experienceIncrementSkill("Enchanting", 5)
+	
+	; Add ill game Achievements
+	Game.AddAchievement(27)
+	Game.AddAchievement(35)
+	
 	;Endif
 
 EndFunction
