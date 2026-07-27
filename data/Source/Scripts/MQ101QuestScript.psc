@@ -381,8 +381,8 @@ function mmzInit()
     ;player.AddSpell(conjureDemoraLordSpell)
 
 	; Starting gold
-	;MiscObject gold = Game.GetFormFromFile(0x0000000F, "Skyrim.esm") as MiscObject
-    ;player.AddItem(gold, 5000, true)
+	MiscObject gold = Game.GetFormFromFile(0x0000000F, "Skyrim.esm") as MiscObject
+    player.AddItem(gold, 10000, true)
 
 	; Add soul gems
 	MiscObject grandSoulGem = Game.GetFormFromFile(0x0002E4FF, "Skyrim.esm") as MiscObject
